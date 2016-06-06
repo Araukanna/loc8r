@@ -34,11 +34,11 @@ module.exports.locationsListByDistance = function(req, res) {
   };
   var geoOptions = {
     spherical: true,
-    maxDistance: 1000,
+    maxDistance: 8000,
     num: 10
   };
-  if ((!lng && lng!==0) || (!lat && lat!==0) || ! maxDistance) {
-    console.log('locationsListByDistance missing params');
+  if ((!lng && lng!==0) || (!lat && lat!==0)) {
+    // console.log('locationsListByDistance missing params');
     sendJSONresponse(res, 404, {
       "message": "lng, lat and maxDistance query parameters are all required"
     });
@@ -46,6 +46,7 @@ module.exports.locationsListByDistance = function(req, res) {
   }
   Loc.geoNear(point, geoOptions, function(err, results, stats) {
     var locations;
+    // RAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
     if (err) {
