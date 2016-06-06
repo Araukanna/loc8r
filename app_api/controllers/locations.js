@@ -5,7 +5,7 @@ var sendJSONresponse = function(res, status, content) {
   res.status(status);
   res.json(content);
 };
-//********************************************* Rads thingy that I don't need.
+//************************************** Rads thingy that I think I don't need.
 // var theEarth = (function() {
 //   var earthRadius = 6371; // km, miles is 3959
 //
@@ -45,7 +45,7 @@ module.exports.locationsListByDistance = function(req, res) {
     return;
   }
   Loc.geoNear(point, geoOptions, function(err, results, stats) {
-    var locations;
+    var locations = [];
     // RAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
     console.log('Geo Results', results);
     console.log('Geo stats', stats);
